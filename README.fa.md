@@ -14,9 +14,19 @@
 
 ## چطور کار می‌کنه
 
-```
-کلاینت (v2rayNG)  ──TLS/h2──▶  Netlify Edge (relay.js)  ──HTTP──▶  اینباند XHTTP روی سرور شما
-                                 بقیهٔ مسیرها → صفحهٔ ساختگی /public
+```mermaid
+flowchart LR
+    C["📱 Client<br/>v2rayNG · Xray"]
+    N["⚡ Netlify Edge<br/>relay.js"]
+    D["📄 Decoy site<br/>/public"]
+    S["🖥️ Your server<br/>Xray XHTTP :8880"]
+    C -- "TLS + h2 · packet-up" --> N
+    N -- "HTTP · XHTTP_PATH only" --> S
+    N -. "any other path" .-> D
+    style C fill:#7c3aed,stroke:#a78bfa,color:#fff
+    style N fill:#00ad9f,stroke:#5eead4,color:#fff
+    style D fill:#475569,stroke:#94a3b8,color:#fff
+    style S fill:#2563eb,stroke:#93c5fd,color:#fff
 ```
 
 - فقط درخواست‌های زیر `XHTTP_PATH` رله می‌شن؛ بقیه یه صفحهٔ سادهٔ استاتیک می‌بینن.
