@@ -1,0 +1,20 @@
+name: check
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Syntax check edge function
+        run: node --check --input-type=module < netlify/edge-functions/relay.js
+      - name: Validate JSON examples
+        run: for f in examples/**/*.json examples/*/*.json; do [ -f "$f" ] && node -e "JSON.parse(require('fs').readFileSync('$f','utf8'))" && echo "ok $f"; done
+      - name: Shell check
+        run: sh -n examples/client/make-link.sh

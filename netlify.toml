@@ -1,0 +1,16 @@
+# Netlify configuration
+# The static decoy site lives in /public; the relay runs as an Edge Function on every path
+# but only touches requests that start with XHTTP_PATH (everything else falls through).
+
+[build]
+  publish = "public"
+
+[[edge_functions]]
+  path = "/*"
+  function = "relay"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer"

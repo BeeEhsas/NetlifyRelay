@@ -1,0 +1,55 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "tag": "netlify-xhttp",
+      "listen": "0.0.0.0",
+      "port": 8880,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "00000000-0000-0000-0000-000000000000",
+            "email": "user1",
+            "flow": "",
+            "enable": true
+          }
+        ],
+        "decryption": "none",
+        "fallbacks": []
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "security": "none",
+        "xhttpSettings": {
+          "path": "/your-secret-path",
+          "host": "",
+          "mode": "auto",
+          "xPaddingBytes": "1-1",
+          "xPaddingObfsMode": true,
+          "xPaddingKey": "t",
+          "xPaddingHeader": "X-Trace",
+          "xPaddingPlacement": "header"
+        }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "metadataOnly": false,
+        "routeOnly": false
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "tag": "direct"
+    }
+  ]
+}

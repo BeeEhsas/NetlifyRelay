@@ -1,0 +1,11 @@
+{
+  "remark": "netlify-xhttp",
+  "enable": true,
+  "listen": "",
+  "port": 8880,
+  "protocol": "vless",
+  "settings": "{\n  \"clients\": [\n    {\n      \"id\": \"00000000-0000-0000-0000-000000000000\",\n      \"email\": \"user1\",\n      \"flow\": \"\",\n      \"enable\": true\n    }\n  ],\n  \"decryption\": \"none\",\n  \"fallbacks\": []\n}",
+  "streamSettings": "{\n  \"network\": \"xhttp\",\n  \"security\": \"none\",\n  \"externalProxy\": [\n    {\n      \"forceTls\": \"tls\",\n      \"dest\": \"relay.example.com\",\n      \"port\": 443,\n      \"remark\": \"\"\n    }\n  ],\n  \"xhttpSettings\": {\n    \"path\": \"/your-secret-path\",\n    \"host\": \"\",\n    \"mode\": \"auto\",\n    \"xPaddingBytes\": \"1-1\",\n    \"xPaddingObfsMode\": true,\n    \"xPaddingKey\": \"t\",\n    \"xPaddingHeader\": \"X-Trace\",\n    \"xPaddingPlacement\": \"header\"\n  }\n}",
+  "sniffing": "{\n  \"enabled\": true,\n  \"destOverride\": [\n    \"http\",\n    \"tls\",\n    \"quic\"\n  ],\n  \"metadataOnly\": false,\n  \"routeOnly\": false\n}",
+  "tag": "inbound-8880"
+}

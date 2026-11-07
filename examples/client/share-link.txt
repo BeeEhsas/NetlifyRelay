@@ -1,0 +1,4 @@
+# Replace UUID, relay.example.com and the path with your own values.
+# To use a clean Netlify IP, replace only the address after '@' and keep sni/host on your domain.
+
+vless://00000000-0000-0000-0000-000000000000@relay.example.com:443?encryption=none&security=tls&sni=relay.example.com&fp=chrome&alpn=h2&type=xhttp&host=relay.example.com&path=%2Fyour-secret-path&mode=packet-up&extra=%7B%22xPaddingBytes%22%3A%221-1%22%2C%22xPaddingObfsMode%22%3Atrue%2C%22xPaddingKey%22%3A%22t%22%2C%22xPaddingHeader%22%3A%22X-Trace%22%2C%22xPaddingPlacement%22%3A%22header%22%7D#netlify-xhttp
